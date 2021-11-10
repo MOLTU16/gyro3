@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello PWA world!</title>
+    <link rel="manifest" href="manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+     navigator.serviceWorker.register('serviceWorker.js')
+      .then(
+      function (registration) {
+          if (typeof registration.update == 'function') {
+              registration.update();
+          }
+      })
+      .catch(function (error) {
+        console.log("Error Log: " + error);
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <p>Hello, PWA world!</p>
+  </body>
+</html>
