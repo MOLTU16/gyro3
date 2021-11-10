@@ -1,7 +1,7 @@
 var CACHE_NAME  = "MKit-cache-v1";
 var urlsToCache = [
-    "https://192.168.0.33/gyro3",
-    "https://192.168.0.33/gyro3/index.html"
+    "https://moltu16.github.io/gyro3",
+    "https://moltu16.github.io/gyro3/index.html"
 ];
 
 self.addEventListener('install', function(event) {
