@@ -20,40 +20,49 @@
   </head>
   <body>
     <input type = "text" id = "angle1" value = "45.0"> 
+    <input type = "text" id = "off_time" value = "1.8">
+    <input type = "text" id = "all_time" value = "3.0">
+    <input type = "button" id = "start" value = "start">
+    <input type = "button" id = "stop" value = "stop">
     <div id="txt">ここにデータを表示</div>             <!-- データを表示するdiv要素 -->
 
     <script>
-    var alpha = 5, beta = 0, gamma = 0;             // ジャイロの値を入れる変数を3個用意
+      var alpha = 5, beta = 0, gamma = 0;             // ジャイロの値を入れる変数を3個用意
 
-    // ジャイロセンサの値が変化したら実行される deviceorientation イベント
-    window.addEventListener("deviceorientation", (event) => {
-        alpha = event.alpha;  // z軸（表裏）まわりの回転の角度（反時計回りがプラス）
-        beta  = event.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
-        gamma = -event.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
-        gamma = Math.floor( gamma * Math.pow( 10, 1 ) ) / Math.pow( 10, 1 ) ;
-    });
+      // ジャイロセンサの値が変化したら実行される deviceorientation イベント
+      window.addEventListener("deviceorientation", (event) => {
+          alpha = event.alpha;  // z軸（表裏）まわりの回転の角度（反時計回りがプラス）
+          beta  = event.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
+          gamma = -event.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
+          gamma = Math.floor( gamma * Math.pow( 10, 1 ) ) / Math.pow( 10, 1 ) ;
+      });
 
-    // 指定時間ごとに繰り返し実行される setInterval(実行する内容, 間隔[ms]) タイマーを設定
-    var timer = window.setInterval(() => {
-        displayData();      // displayData 関数を実行
-    }, 33); // 33msごとに（1秒間に約30回）
+      // 指定時間ごとに繰り返し実行される setInterval(実行する内容, 間隔[ms]) タイマーを設定
+      var timer = window.setInterval(() => {
+          displayData();      // displayData 関数を実行
+      }, 33); // 33msごとに（1秒間に約30回）
 
-    // データを表示する displayData 関数
-    function displayData() {
-        var angle = document.getElementById('angle1').value;
-        angle = parseFloat(angle)
+      // データを表示する displayData 関数
+      function displayData() {
+          var angle = document.getElementById('angle1').value;
+          angle = parseFloat(angle)
 
-        var txt = document.getElementById("txt");   // データを表示するdiv要素の取得
-        txt.innerHTML = "gamma: " + gamma;          // z軸の値
+          var txt = document.getElementById("txt");   // データを表示するdiv要素の取得
+          txt.innerHTML = "gamma: " + gamma;          // z軸の値
 
-        if (gamma > angle){
-            document.bgColor = "#FFFFFF";
-            document.fgColor = "#000000";
-        }else{
-            document.bgColor = "#000000";
-            document.fgColor = "#FFFFFF";
-        }
-    }
+          if (gamma > angle){
+              document.bgColor = "#FFFFFF";
+              document.fgColor = "#000000";
+          }else{
+              document.bgColor = "#000000";
+              document.fgColor = "#FFFFFF";
+          }
+      }
+      
+      var beep1 = new Audio('beep1');
+      var beep2 = new Audio('beep2');
+      
+      
     </script>
   </body>
 </html>
