@@ -16,7 +16,13 @@
         console.log("Error Log: " + error);
       });
     }
-      
+    </script>
+  </head>
+  <body>
+    <input type = "text" id = "angle1" value = "45.0"> 
+    <div id="txt">ここにデータを表示</div>             <!-- データを表示するdiv要素 -->
+
+    <script>
     var alpha = 5, beta = 0, gamma = 0;             // ジャイロの値を入れる変数を3個用意
 
     // ジャイロセンサの値が変化したら実行される deviceorientation イベント
@@ -49,8 +55,5 @@
         }
     }
     </script>
-  </head>
-  <body>
-    <p>Hello, PWA world!</p>
   </body>
 </html>
