@@ -2,7 +2,7 @@
   "name": "PWA sample for mobile kit",
   "short_name": "MKit",
   "icons": [{
-        "src": "https://moltu16.github.io/gyro3/logo192.png",
+        "src": "logo192.png",
         "sizes": "192x192",
         "type": "image/png"
       }],
