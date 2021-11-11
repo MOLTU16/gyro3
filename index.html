@@ -46,7 +46,7 @@
           var txt = document.getElementById("txt");   // データを表示するdiv要素の取得
           txt.innerHTML = "gamma: " + gamma;          // z軸の値
 
-          if (gamma > angle){
+          if (Math.abs(gamma) > angle){
               document.bgColor = "#FFFFFF";
               document.fgColor = "#000000";
           }else{
