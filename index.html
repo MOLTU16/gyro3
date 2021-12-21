@@ -24,8 +24,8 @@
 
     <script>
       var alpha = 5, beta = 0, gamma = 0;             // ジャイロの値を入れる変数を3個用意
-      var former_gamma = 0, angle = 0;                // 角度を確認するための変数
-      var music = new Audio('beep.mp3');                      // 再生するwavファイルを選択する
+      var angle = 0;                                  // 角度を確認するための変数
+      var music = new Audio('beep.mp3');              // 再生するwavファイルを選択する
 
       // ジャイロセンサの値が変化したら実行される deviceorientation イベント
       window.addEventListener("deviceorientation", (event) => {
@@ -54,11 +54,10 @@
           }else{
               document.bgColor = "#000000";
               document.fgColor = "#FFFFFF";
-              if (former_gamma < angle){
-                music.play();
-              }
+              
+              music.play();
+              
           }
-          former_gamma = Math.abs(gamma);
       }     
       
     </script>
