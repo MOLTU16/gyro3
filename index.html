@@ -51,12 +51,12 @@
           if (Math.abs(gamma) > angle){
               document.bgColor = "#FFFFFF";
               document.fgColor = "#000000";
-              if (former_gamma < angle){
-                music.play();
-              }
           }else{
               document.bgColor = "#000000";
               document.fgColor = "#FFFFFF";
+              if (former_gamma < angle){
+                music.play();
+              }
           }
           former_gamma = Math.abs(gamma);
       }     
